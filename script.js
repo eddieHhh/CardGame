@@ -180,7 +180,7 @@ function askForNewGame() {
 }
 
 document.getElementById('take-card').addEventListener('click', () => {
-  controlPlay();
+  controlPslay();
 });
 
 document.getElementById('pass').addEventListener('click', () => {
