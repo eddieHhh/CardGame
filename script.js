@@ -103,6 +103,13 @@ function controlPlay() {
   } else {
     if (!human.passed && human.offerCard()) {
       human.takeVisibleCard(nextCard());
+      if (human.getScore() > 21) { // 玩家分数超过21点时，自动结束游戏
+        human.passed = true;
+        completeComputerTurns();
+        declareWinner();
+        askForNewGame();
+        return;
+      }
     } else {
       human.passed = true;
     }
@@ -180,7 +187,7 @@ function askForNewGame() {
 }
 
 document.getElementById('take-card').addEventListener('click', () => {
-  controlPslay();
+  controlPlay();
 });
 
 document.getElementById('pass').addEventListener('click', () => {
