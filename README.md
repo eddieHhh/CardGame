@@ -5,6 +5,7 @@ This Simple 21 Card Game is a browser-based card game, a simplified version of t
 
 # Game Rules
   # Objective: 
+  
   The goal is to achieve a score as close to 21 as possible without exceeding it. The player with the highest score under or equal to 21 wins the game.
   # Card Values: 
   Cards are worth their face value, with face cards (Jack, Queen, King) worth 10 and an Ace worth 1 point.
