@@ -1,14 +1,21 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     text-align: center;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
 }
 
 .player {
     margin: 10px;
     padding: 10px;
-    border: 1px solid #000;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    background-color: white;
     display: inline-block;
     vertical-align: top;
+    border-radius: 8px;
 }
 
 #human-player {
@@ -21,7 +28,29 @@ body {
 }
 
 .cards {
-    border: 1px solid #ddd;
+    border: 1px solid #eee;
     padding: 5px;
     margin-top: 10px;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 600px) {
+    .player, #human-player, #computer-players {
+        width: 100%;
+    }
 }
