@@ -41,7 +41,7 @@ class Player {
   }
 
   offerCard() {
-    return this.getScore < 16; 
+    return this.getScore() < 16;  // Now using getScore() to include hidden card
   }
 
   updateStatus(passed) {
@@ -103,7 +103,7 @@ function controlPlay() {
   } else {
     if (!human.passed && human.offerCard()) {
       human.takeVisibleCard(nextCard());
-      if (human.getScore() > 21) { // 玩家分数超过21点时，自动结束游戏
+      if (human.getScore() > 21) {
         human.passed = true;
         completeComputerTurns();
         declareWinner();
@@ -128,12 +128,11 @@ function controlPlay() {
 
 function completeComputerTurns() {
   [player1, player2, player3].forEach(player => {
-    if (!player.passed && player.offerCard()) {
+    while (!player.passed && player.offerCard()) {
       player.takeVisibleCard(nextCard());
-      player.updateDisplay(); // 确保更新电脑玩家的明牌显示
-    } else {
-      player.passed = true;
+      player.updateDisplay(); // Ensure the computer player's visible cards are updated
     }
+    player.passed = true;
     player.updateStatus(player.passed);
   });
 
@@ -198,5 +197,4 @@ document.getElementById('pass').addEventListener('click', () => {
 });
 
 deal();
-
 
