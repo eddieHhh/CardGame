@@ -41,7 +41,7 @@ class Player {
   }
 
   offerCard() {
-    return this.sumOfVisibleCards < 16; // 电脑玩家在总分小于16时拿牌
+    return this.getScore < 16; 
   }
 
   updateStatus(passed) {
@@ -199,4 +199,4 @@ document.getElementById('pass').addEventListener('click', () => {
 
 deal();
 
-let score
+
