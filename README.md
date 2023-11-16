@@ -1,7 +1,7 @@
 ## Simple 21-Card Game
 ## Play the Game
 
-[Click here to play the game]([https://<username>.github.io/<repository>](https://eddiehhh.github.io/CardGame/))
+[Click here to play the game]([https://eddiehhh.github.io/CardGame/])
 
 # Overview
 This Simple 21 Card Game is a browser-based card game, a simplified version of the classic Blackjack game. In this game, the player competes against three computer-controlled players, aiming to achieve a score as close to 21 as possible without going over.
