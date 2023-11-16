@@ -1,56 +1,43 @@
 body {
-    font-family: 'Roboto', sans-serif;
-    text-align: center;
-    background-color: #eaecef;
-    color: #2c3e50;
-    margin: 0;
-    padding: 0;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  text-align: center;
+  background-color: #eaecef;
+  color: #2c3e50;
+  margin: 0;
+  padding: 0;
 }
 
 .player {
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: white;
-    display: inline-block;
-    vertical-align: top;
-    border-radius: 8px;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  display: inline-block;
+  vertical-align: top;
+  border-radius: 8px;
 }
 
 #human-player {
-    width: 30%;
+  width: 30%;
 }
 
 #computer-players {
-    width: 60%;
-    display: inline-block;
+  width: 60%;
+  display: inline-block;
 }
 
 .cards {
-    border: 1px solid #ddd;
-    padding: 5px;
-    margin-top: 10px;
-    border-radius: 4px;
+  border: 1px solid #ddd;
+  padding: 5px;
+  margin-top: 10px;
+  border-radius: 4px;
 }
 
 button {
-    background-color: #34495e;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin: 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #2c3e50;
-}
-
-@media (max-width: 600px) {
-    .player, #human-player, #computer-players {
-        width: 100%;
-    }
-}
+  background-color: #34495e;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radiu
