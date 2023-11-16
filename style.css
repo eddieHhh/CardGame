@@ -1,0 +1,27 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.player {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #000;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#human-player {
+    width: 30%;
+}
+
+#computer-players {
+    width: 60%;
+    display: inline-block;
+}
+
+.cards {
+    border: 1px solid #ddd;
+    padding: 5px;
+    margin-top: 10px;
+}
