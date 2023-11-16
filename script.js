@@ -47,11 +47,7 @@ class Player {
   updateStatus(passed) {
     const playerElement = document.getElementById(this.name);
     const statusDiv = playerElement.getElementsByClassName('status')[0];
-    if (passed) {
-      statusDiv.textContent = 'Passed';
-    } else {
-      statusDiv.textContent = '';
-    }
+    statusDiv.textContent = passed ? 'Passed' : '';
   }
 }
 
@@ -137,6 +133,8 @@ function completeComputerTurns() {
     }
     player.updateStatus(player.passed);
   });
+
+  showScores();
 }
 
 function showScores() {
