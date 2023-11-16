@@ -128,6 +128,7 @@ function completeComputerTurns() {
   [player1, player2, player3].forEach(player => {
     if (!player.passed && player.offerCard()) {
       player.takeVisibleCard(nextCard());
+      player.updateDisplay();  // 更新电脑玩家的明牌显示
     } else {
       player.passed = true;
     }
