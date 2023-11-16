@@ -1,5 +1,4 @@
-# CardGame
-Simple 21-Card Game
+# Simple 21-Card Game
 Overview
 This Simple 21 Card Game is a browser-based card game, designed to be a simplified version of the classic Blackjack game. In this game, the player competes against three computer-controlled players in an attempt to get as close to 21 points without going over.
 
