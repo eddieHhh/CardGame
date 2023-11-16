@@ -103,8 +103,16 @@ function controlPlay() {
   } else {
     if (!human.passed && human.offerCard()) {
       human.takeVisibleCard(nextCard());
+      if (human.getScore() > 21) {
+        human.passed = true;
+        completeComputerTurns();
+        declareWinner();
+        askForNewGame();
+        return;
+      }
+    } else {
+      human.passed = true;
     }
-    human.passed = human.getScore() > 21;
 
     completeComputerTurns();
   }
@@ -122,10 +130,10 @@ function completeComputerTurns() {
   [player1, player2, player3].forEach(player => {
     if (!player.passed && player.offerCard()) {
       player.takeVisibleCard(nextCard());
-      player.updateDisplay();
     }
     player.passed = true;
     player.updateStatus(player.passed);
+    player.updateDisplay(); // 更新电脑玩家的牌面显示
   });
 
   showScores();
@@ -163,29 +171,31 @@ function declareWinner() {
       winner = player;
     }
   });
-    alert(finalScoresMessage);
 
-    let winnerMessage = winner ? winner.name + " wins with " + highestScore + " points!" : "No winner!";
-    alert(winnerMessage);
+  alert(finalScoresMessage);
+
+  let winnerMessage = winner ? winner.name + " wins with " + highestScore + " points!" : "No winner!";
+  alert(winnerMessage);
+}
+
+function askForNewGame() {
+  if (confirm("Game over! Do you want to play again?")) {
+    isFirstTurn = true;
+    deal();
   }
+}
 
-  function askForNewGame() {
-    if (confirm("Game over! Do you want to play again?")) {
-      isFirstTurn = true;
-      deal();
-    }
-  }
+document.getElementById('take-card').addEventListener('click', () => {
+  controlPlay();
+});
 
-  document.getElementById('take-card').addEventListener('click', () => {
-    controlPlay();
-  });
+document.getElementById('pass').addEventListener('click', () => {
+  human.passed = true;
+  completeComputerTurns();
+  declareWinner();
+  askForNewGame();
+});
 
-  document.getElementById('pass').addEventListener('click', () => {
-    human.passed = true;
-    completeComputerTurns();
-    declareWinner();
-    askForNewGame();
-  });
+deal();
 
-  deal();
-
+let score
