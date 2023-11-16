@@ -198,4 +198,4 @@ document.getElementById('pass').addEventListener('click', () => {
 
 deal();
 
-let score
+
