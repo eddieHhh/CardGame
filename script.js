@@ -41,7 +41,7 @@ class Player {
   }
 
   offerCard() {
-    return this.getScore() < 16;  // Now using getScore() to include hidden card
+    return this.getScore() < 16;
   }
 
   updateStatus(passed) {
@@ -103,16 +103,8 @@ function controlPlay() {
   } else {
     if (!human.passed && human.offerCard()) {
       human.takeVisibleCard(nextCard());
-      if (human.getScore() > 21) {
-        human.passed = true;
-        completeComputerTurns();
-        declareWinner();
-        askForNewGame();
-        return;
-      }
-    } else {
-      human.passed = true;
     }
+    human.passed = human.getScore() > 21;
 
     completeComputerTurns();
   }
@@ -128,9 +120,9 @@ function controlPlay() {
 
 function completeComputerTurns() {
   [player1, player2, player3].forEach(player => {
-    while (!player.passed && player.offerCard()) {
+    if (!player.passed && player.offerCard()) {
       player.takeVisibleCard(nextCard());
-      player.updateDisplay(); // Ensure the computer player's visible cards are updated
+      player.updateDisplay();
     }
     player.passed = true;
     player.updateStatus(player.passed);
@@ -171,30 +163,29 @@ function declareWinner() {
       winner = player;
     }
   });
+    alert(finalScoresMessage);
 
-  alert(finalScoresMessage);
-
-  let winnerMessage = winner ? winner.name + " wins with " + highestScore + " points!" : "No winner!";
-  alert(winnerMessage);
-}
-
-function askForNewGame() {
-  if (confirm("Game over! Do you want to play again?")) {
-    isFirstTurn = true;
-    deal();
+    let winnerMessage = winner ? winner.name + " wins with " + highestScore + " points!" : "No winner!";
+    alert(winnerMessage);
   }
-}
 
-document.getElementById('take-card').addEventListener('click', () => {
-  controlPlay();
-});
+  function askForNewGame() {
+    if (confirm("Game over! Do you want to play again?")) {
+      isFirstTurn = true;
+      deal();
+    }
+  }
 
-document.getElementById('pass').addEventListener('click', () => {
-  human.passed = true;
-  completeComputerTurns();
-  declareWinner();
-  askForNewGame();
-});
+  document.getElementById('take-card').addEventListener('click', () => {
+    controlPlay();
+  });
 
-deal();
+  document.getElementById('pass').addEventListener('click', () => {
+    human.passed = true;
+    completeComputerTurns();
+    declareWinner();
+    askForNewGame();
+  });
+
+  deal();
 
