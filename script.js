@@ -107,12 +107,7 @@ function controlPlay() {
       human.passed = true;
     }
 
-    if (human.passed || human.getScore() > 21) {
-      completeComputerTurns();
-      declareWinner();
-      askForNewGame();
-      return;
-    }
+    completeComputerTurns();
   }
 
   human.updateStatus(human.passed);
@@ -128,7 +123,7 @@ function completeComputerTurns() {
   [player1, player2, player3].forEach(player => {
     if (!player.passed && player.offerCard()) {
       player.takeVisibleCard(nextCard());
-      player.updateDisplay();  // 更新电脑玩家的明牌显示
+      player.updateDisplay(); // 确保更新电脑玩家的明牌显示
     } else {
       player.passed = true;
     }
@@ -197,3 +192,4 @@ document.getElementById('pass').addEventListener('click', () => {
 
 deal();
 
+let score
